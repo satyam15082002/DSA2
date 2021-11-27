@@ -22,6 +22,7 @@ void bubble_sort(int a[],int n)
                 a[j+1]=temp;
             }
         }
+        count++;
     }
     std::cout<<"Bubble sort count:"<<count<<std::endl;
 }
@@ -41,6 +42,7 @@ void selection_sort(int a[],int n)
         temp=a[minidx];
         a[minidx]=a[i];
         a[i]=temp;
+        count++;
     }
     std::cout<<"Selction sort count:"<<count<<std::endl;
 
@@ -59,6 +61,7 @@ void insertion_sort(int a[],int n)
             count++;
         }
         a[j+1]=t;
+        count++;
     }
     std::cout<<"Insertion sort count:"<<count<<std::endl;
 
