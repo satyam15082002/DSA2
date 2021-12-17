@@ -6,6 +6,8 @@ void insertion_sort(int a[],int n);
 //Heap Sort functions
 void heap_sort(int a[],int n);
 void heapify(int a[],int n,int i);
+//count sort
+void countSort(int a[],int n);
 
 
 void bubble_sort(int a[],int n)
@@ -96,4 +98,22 @@ void heap_sort(int a[],int n)
 		a[i]=temp;
 		heapify(a,i,0);
 	}
+}
+void countSort(int a[],int n)
+{
+    const int range=100;
+    int *output=new int[n];
+    int count[range+1]={0};
+    for(int i=0;i<n;i++)
+        ++count[a[i]];
+    for(int i=1;i<=range;++i)
+        count[i]+=count[i-1];
+    for(int i=0;i<n;i++)
+    {
+        output[count[a[i]]-1]=a[i];
+        --count[a[i]];
+    }
+    for(int i=0;i<n;i++)
+        a[i]=output[i];
+    delete[] output;
 }
