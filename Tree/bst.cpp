@@ -40,7 +40,7 @@ Node* bst_delete(Node* root,int key)
     }
     else
     {
-        Node* tmp=inorderSuccessor(root->R);
+        Node* tmp=inorderSuccessor(root);
         root->data=tmp->data;
         root->R=bst_delete(root->R,tmp->data);
     }
@@ -100,7 +100,7 @@ Node* inorderSuccessor(Node* root)
 {
     if(root==NULL)
         return root;
-    Node* tmp=root;
+    Node* tmp=root->R;
     while(tmp->L!=NULL)
         tmp=tmp->L;
     return tmp;
@@ -109,7 +109,7 @@ Node* inorderPredecessor(Node* root)
 {
     if(root==NULL)
         return root;
-    Node* tmp=root;
+    Node* tmp=root->L;
     while(tmp->R!=NULL)
         tmp=tmp->R;
     return tmp;
